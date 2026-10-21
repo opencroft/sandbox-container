@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
     && rm -rf /var/lib/apt/lists/*
 
 COPY git-cred.sh /tmp/git-cred
-RUN chmod +x /tmp/git-cred && git config --system credential.helper /tmp/git-cred
+RUN chmod 755 /tmp/git-cred && git config --system credential.helper /tmp/git-cred
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
