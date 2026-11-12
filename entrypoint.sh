@@ -3,7 +3,12 @@ set -e
 
 if [ -n "$GIT_REPO" ] && [ ! -d /app/.git ]; then
     echo "Cloning $GIT_REPO ..."
-    git clone "$GIT_REPO" /app
+    # /app may already hold mounted volumes: clone beside it, move .git in
+    git clone --no-checkout "$GIT_REPO" /tmp/clone
+    mv /tmp/clone/.git /app/.git
+    rm -rf /tmp/clone
+    git -C /app reset -q --hard
+    chown -R node:node /app
     echo "Clone complete."
 fi
 
