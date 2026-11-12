@@ -8,7 +8,7 @@ COPY git-cred.sh /tmp/git-cred
 RUN chmod 755 /tmp/git-cred && git config --system credential.helper /tmp/git-cred
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
 
 WORKDIR /app
 USER node
