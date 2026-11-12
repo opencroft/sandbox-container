@@ -12,4 +12,4 @@ if [ -n "$GIT_REPO" ] && [ ! -d /app/.git ]; then
     echo "Clone complete."
 fi
 
-exec "$@"
+exec setpriv --reuid=node --regid=node --init-groups "$@"
