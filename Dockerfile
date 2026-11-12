@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:25-slim
+ARG BASE_IMAGE=node:26-slim
 FROM ${BASE_IMAGE}
 
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates \
