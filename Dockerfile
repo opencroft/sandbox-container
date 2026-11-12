@@ -11,7 +11,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 
 WORKDIR /app
-USER node
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["sleep", "infinity"]
