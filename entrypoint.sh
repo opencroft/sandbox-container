@@ -23,6 +23,7 @@ if [ -n "$GIT_REPO" ] && [ ! -d /app/.git ]; then
     if [ "$(id -u)" = 0 ]; then
         chown -R node:node /app
     fi
+    git config --global --add safe.directory /app
     echo "Clone complete."
 fi
 
